@@ -70,3 +70,42 @@ feel free to open an issue.
 
 ![Conflict vs mediator dynamics]
 <img width="1495" height="543" alt="Screenshot 2026-01-14 232553" src="https://github.com/user-attachments/assets/38681bc1-6e0a-4233-8e3d-7e483c2d054d" />
+
+
+## Architecture overview
+
+Atomium is modeled as a dynamic graph of interacting components ("cells").
+
+Each cell:
+- maintains a continuous internal state
+- exchanges signals with connected cells
+- does not represent a neuron or a language token
+
+The system evolves over discrete time steps via damped message passing.
+
+Key properties:
+- no backpropagation
+- no training loop
+- no global loss function
+
+## Conflict detection and refusal
+
+Conflict is defined as sustained divergence between internal cell states
+beyond a configurable threshold over time.
+
+When conflict is detected:
+- the output gate is hard-blocked
+- no candidate answers are generated
+- the system enters a non-answering state
+
+Refusal is therefore an emergent system property,
+not a policy or confidence-based heuristic.
+
+## Structural mediation
+
+If conflict persists for N steps:
+- a mediator cell is introduced
+- the mediator does not produce output
+- it absorbs, dampens, and redistributes conflicting signals
+
+This changes the system topology instead of retraining parameters.
