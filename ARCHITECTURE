@@ -1,0 +1,73 @@
+# Atomium Architecture
+
+Atomium is modeled as a dynamic graph of interacting components (“cells”)
+that evolve over discrete time steps.
+
+The system is not trained via backpropagation and has no global loss function.
+
+---
+
+## Cell model
+
+Each cell:
+- maintains a continuous internal state
+- receives signals from connected cells
+- applies damping to prevent runaway dynamics
+- does not represent a neuron or a language token
+
+Cells can have different functional roles
+(e.g. proposal, verification, stabilization, mediation).
+
+---
+
+## State update (conceptual)
+
+At each time step:
+1. Cells receive weighted signals from neighbors
+2. Signals are aggregated with damping
+3. Cell states are updated
+4. Divergence between relevant cell states is evaluated
+
+No candidate output is generated during this process.
+
+---
+
+## Conflict detection
+
+Conflict is defined as sustained divergence between cell states
+beyond a threshold over a sliding time window.
+
+Conflict indicates internal inconsistency, not lack of activation.
+
+---
+
+## Refusal mechanism
+
+When conflict is active:
+- the output gate is hard-blocked
+- no fallback or best-guess answer is produced
+- the system enters a non-answering state
+
+Refusal is an emergent property of system dynamics,
+not a trained policy or confidence heuristic.
+
+---
+
+## Structural mediation
+
+If conflict persists for N time steps:
+- a mediator cell is introduced
+- the mediator does not produce output
+- it absorbs and redistributes conflicting signals
+- the system topology changes instead of retraining parameters
+
+After mediation, consensus is re-evaluated.
+
+---
+
+## Consensus
+
+Consensus is defined as bounded convergence of relevant cell states
+over time.
+
+Only after consensus is restored is output allowed again.
