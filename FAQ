@@ -1,0 +1,22 @@
+# FAQ
+
+## Is this just a rule-based chatbot?
+No. Rule-based chatbots refuse because they have no matching rule.
+Atomium explores refusal due to **internal inconsistency**, even when activation exists.
+
+## Is this just confidence thresholding?
+No. Thresholding is typically applied at the output layer (probability/confidence).
+Here, refusal is triggered by **internal conflict dynamics**.
+
+## Is this just self-consistency / ensemble voting?
+No. Many approaches generate multiple candidate answers and vote.
+Atomium blocks output *before* answer generation when conflict is active.
+
+## Is this a GNN?
+It uses a graph structure, but it's not a standard trained GNN:
+no backpropagation, no dataset training loop, no global loss function.
+It's closer to a dynamical system on a graph.
+
+## Is this meant to replace LLMs?
+No. It can be seen as a complementary layer for reliability/verification,
+especially in high-stakes contexts where guessing is unacceptable.
