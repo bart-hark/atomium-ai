@@ -66,4 +66,7 @@ This idea has been discussed on Reddit and Tweakers.
 If you have relevant references, critiques, or comparable work,
 feel free to open an issue.
 
+## Example behavior
+
+![Conflict vs mediator dynamics]
 <img width="1495" height="543" alt="Screenshot 2026-01-14 232553" src="https://github.com/user-attachments/assets/38681bc1-6e0a-4233-8e3d-7e483c2d054d" />
