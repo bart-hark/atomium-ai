@@ -110,7 +110,7 @@ If conflict persists for N steps:
 
 This changes the system topology instead of retraining parameters.
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for a system description.
+See ARCHITECTURE for a system description.
 
 
 ## More details
