@@ -111,3 +111,21 @@ If conflict persists for N steps:
 This changes the system topology instead of retraining parameters.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for a high-level system description.
+
+## FAQ
+
+**Is this just a GNN?**  
+No. While it uses graph structure, it has no training loop,
+no loss function, and explicit refusal states.
+
+**Is this similar to ensemble or self-consistency methods?**  
+No. Consensus is enforced internally before output,
+not computed over multiple generated answers.
+
+**Is refusal just confidence thresholding?**  
+No. Refusal emerges from unresolved internal conflict,
+not from output uncertainty estimates.
+
+**Is this meant to replace LLMs?**  
+No. It explores a complementary architectural layer.
+
