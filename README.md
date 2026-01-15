@@ -1,4 +1,4 @@
-# atomium-ai
+# atomium-ai 
 AI architecture that refuses to guess under uncertainty
 
 # Atomium — AI that refuses to guess
@@ -109,3 +109,5 @@ If conflict persists for N steps:
 - it absorbs, dampens, and redistributes conflicting signals
 
 This changes the system topology instead of retraining parameters.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for a high-level system description.
